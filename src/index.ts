@@ -1,6 +1,7 @@
 // src/index.ts
 import "dotenv/config";
 import express from "express";
+import type { Express, Request, Response } from "express";
 
 // Type-safe environment variables
 const nodeEnv = process.env.NODE_ENV || "development";
@@ -10,10 +11,10 @@ console.log("Environment:", nodeEnv);
 console.log("Port:", port);
 
 // Express app with TypeScript
-const app: express.Express = express();
+const app: Express = express();
 
 // Define route handler types
-app.get("/", (req: express.Request, res: express.Response) => {
+app.get("/", (req: Request, res: Response) => {
   res.json({
     environment: nodeEnv,
     app: "My App",
